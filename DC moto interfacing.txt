@@ -1,0 +1,74 @@
+#include <xc.h>
+
+#pragma config OSC = HS
+#pragma config WDT = OFF
+#pragma config LVP = OFF
+#pragma config PBADEN = OFF
+
+void myMsDelay(unsigned int time)
+{
+    unsigned int i, j;
+    for (i = 0; i < time; i++)
+    {
+        for (j = 0; j < 375; j++)
+        {
+            
+        }
+    }
+}
+
+void main()
+{
+    TRISCbits.TRISC0 = 0;
+    TRISCbits.TRISC1 = 0;
+    TRISCbits.TRISC2 = 0;
+    TRISCbits.TRISC3 = 0;
+    TRISCbits.TRISC4 = 0;
+    TRISCbits.TRISC5 = 0;
+
+    PORTCbits.RC0 = 0;
+    PORTCbits.RC1 = 0;
+    PORTCbits.RC2 = 0;
+    PORTCbits.RC3 = 0;
+    PORTCbits.RC4 = 0;
+    PORTCbits.RC5 = 0;
+
+    while (1)
+    {
+        PORTCbits.RC0 = 1;
+        PORTCbits.RC1 = 0;
+        PORTCbits.RC2 = 1;
+        PORTCbits.RC3 = 1;
+        PORTCbits.RC4 = 1;
+        PORTCbits.RC5 = 0;
+
+        myMsDelay(2000);
+
+        PORTCbits.RC0 = 0;
+        PORTCbits.RC1 = 0;
+        PORTCbits.RC2 = 0;
+        PORTCbits.RC3 = 0;
+        PORTCbits.RC4 = 0;
+        PORTCbits.RC5 = 0;
+
+        myMsDelay(2000);
+
+        PORTCbits.RC0 = 0;
+        PORTCbits.RC1 = 1;
+        PORTCbits.RC2 = 1;
+        PORTCbits.RC3 = 1;
+        PORTCbits.RC4 = 0;
+        PORTCbits.RC5 = 1;
+
+        myMsDelay(2000);
+
+        PORTCbits.RC0 = 0;
+        PORTCbits.RC1 = 0;
+        PORTCbits.RC2 = 0;
+        PORTCbits.RC3 = 0;
+        PORTCbits.RC4 = 0;
+        PORTCbits.RC5 = 0;
+
+        myMsDelay(2000);
+    }
+}
